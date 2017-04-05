@@ -24,10 +24,7 @@ var gulp = require('gulp'),
                 {
                     test: /\.js$/,
                     exclude: /node_modules/,
-                    loader: 'babel',
-                    query: {
-                        presets: ['es2015']
-                    } //es2015 用于支持 ES6 语法
+                    loader: 'babel'
                 },
                 //html 文件先通过 less-load 处理成 css，然后再通过 css-loader 加载成 css 模块，最后由 extractTextPlugin 插件通过 style-loader 加载器提取出 css 文件
                 {
@@ -55,12 +52,9 @@ var gulp = require('gulp'),
 
         postcss: [postcssautoprefixer({browsers: [
             'last 2 version', 'safari 5', 'ie 7', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'
-        ]}), postcssclean],
-
-        output: {
-            publicPath: 'http://wx.admin.static.com/'
-            /*publicPath: '../static/'*/
-        },
+        ]}), postcssclean({
+            compatibility: 'ie7'
+        })],
 
         //其它解决方案配置
         resolve: {

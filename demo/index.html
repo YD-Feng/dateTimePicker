@@ -11,18 +11,20 @@
         .mt20px{
             margin-top: 20px;
         }
-        input{
+        .input{
             background: #ffffff;
             border: 1px solid #cccccc;
             border-radius: 3px;
-            height: 26px;
-            padding: 0 4px;
+            padding: 6px 4px;
         }
         p{
             line-height: 25px;
         }
     </style>
 
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="es5-shim.min.js"></script>
+    <![endif]-->
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="../dist/date-time-picker.min.js"></script>
 </head>
@@ -32,6 +34,7 @@
     <ul>
         <li>需要修改样式，请用样式覆盖，或者修改项目源文件，然后执行 gulp build 命令重新生成文件</li>
         <li>样式文件已经整合到打包文件中了，使用前只需将 js 文件直接引入到页面中即可（请确保 jquery 已经在插件前面引用）</li>
+        <li>需要修改样式，请用样式覆盖，或者修改项目源文件，然后执行 gulp build 命令重新生成文件</li>
     </ul>
 
     <div style="height: 50px"></div>
@@ -43,7 +46,7 @@
     <div class="demo-div mt20px">
         <p>最简单的调用：</p>
 
-        <input type="text" class="mt10px" id="J-demo-01">
+        <input type="text" class="mt10px input" id="J-demo-01">
 
         <script type="text/javascript">
             $('#J-demo-01').dateTimePicker();
@@ -53,7 +56,7 @@
     <div class="demo-div mt20px">
         <p>日期时间选择器：</p>
 
-        <input type="text" class="mt10px" id="J-demo-02">
+        <input type="text" class="mt10px input" id="J-demo-02">
 
         <script type="text/javascript">
             $('#J-demo-02').dateTimePicker({
@@ -65,7 +68,7 @@
     <div class="demo-div mt20px">
         <p>限制选择区间：</p>
 
-        <input type="text" class="mt10px" id="J-demo-03" value="2017-03-15 12:00:00">
+        <input type="text" class="mt10px input" id="J-demo-03" value="2017-03-15 12:00:00">
 
         <script type="text/javascript">
             $('#J-demo-03').dateTimePicker({
@@ -79,7 +82,7 @@
     <div class="demo-div mt20px">
         <p>两个输入框关联（选择时间段，前者的时间必须小于等于后者）：</p>
 
-        <input type="text" class="mt10px" id="J-demo-04" value=""> - <input type="text" class="mt10px" id="J-demo-05" value="">
+        <input type="text" class="mt10px input" id="J-demo-04" value=""> - <input type="text" class="mt10px input" id="J-demo-05" value="">
 
         <script type="text/javascript">
             $('#J-demo-04').dateTimePicker({
@@ -95,7 +98,7 @@
     <div class="demo-div mt20px">
         <p>指定日期格式：</p>
 
-        <input type="text" class="mt10px" id="J-demo-06">
+        <input type="text" class="mt10px input" id="J-demo-06">
 
         <script type="text/javascript">
             $('#J-demo-06').dateTimePicker({
@@ -108,7 +111,7 @@
     <div class="demo-div mt20px">
         <p>指定年，月，日的名称（只影响选择器界面中的选项展示）：</p>
 
-        <input type="text" class="mt10px" id="J-demo-07">
+        <input type="text" class="mt10px input" id="J-demo-07">
 
         <script type="text/javascript">
             $('#J-demo-07').dateTimePicker({

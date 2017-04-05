@@ -45,7 +45,7 @@ DateTimePicker.prototype._bindEvents = function () {
             maxLeft = $document.width() - _this.options.$dateTimePicker.outerWidth(),
             maxTop = $document.height() - _this.options.$dateTimePicker.outerHeight();
 
-        if (date.toString() == 'Invalid Date') date = new Date();
+        if (isNaN(date.valueOf())) date = new Date();
 
         _this.options.$dateTimePicker.data({
             curTarget: $this,
@@ -188,7 +188,7 @@ module.exports = (function ($) {
                         limitMaxDate = new Date(limitMax);
                     }
 
-                    if (limitMaxDate.toString() == 'Invalid Date') {
+                    if (isNaN(limitMaxDate.valueOf())) {
                         limitMaxDate = null;
                     } else {
                         limitMaxDate.setHours(0);
@@ -206,7 +206,7 @@ module.exports = (function ($) {
                         limitMinDate = new Date(limitMin);
                     }
 
-                    if (limitMinDate.toString() == 'Invalid Date') {
+                    if (isNaN(limitMinDate.valueOf())) {
                         limitMinDate = null;
                     } else {
                         limitMinDate.setHours(0);
@@ -351,7 +351,7 @@ module.exports = (function ($) {
                             limitMaxDate = new Date(limitMax);
                         }
 
-                        if (limitMaxDate.toString() == 'Invalid Date') {
+                        if (isNaN(limitMaxDate.valueOf())) {
                             limitMaxDate = null;
                         }
                     }
@@ -365,7 +365,7 @@ module.exports = (function ($) {
                             limitMinDate = new Date(limitMin);
                         }
 
-                        if (limitMinDate.toString() == 'Invalid Date') {
+                        if (isNaN(limitMinDate.valueOf())) {
                             limitMinDate = null;
                         }
                     }
@@ -382,11 +382,11 @@ module.exports = (function ($) {
 
                 data['curTarget'].val(date.format(data['format']));
 
-                $dateTimePicker.hide();
                 $monthMenu.hide();
                 $hourMenu.hide();
                 $minuteMenu.hide();
                 $secondMenu.hide();
+                $dateTimePicker.hide();
             };
 
         //为日期选择器绑定事件
@@ -394,11 +394,11 @@ module.exports = (function ($) {
             var $target = $(e.target);
 
             if ($target.closest($dateTimePicker).length == 0 && $target.closest($dateTimePicker.data('targetList')).length == 0) {
-                $dateTimePicker.hide();
                 $monthMenu.hide();
                 $hourMenu.hide();
                 $minuteMenu.hide();
                 $secondMenu.hide();
+                $dateTimePicker.hide();
             }
         });
 

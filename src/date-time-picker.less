@@ -139,33 +139,37 @@
         width: 210px;
         height: 26px;
         padding-top: 5px;
+        *padding-top: 10px;
         padding-bottom: 4px;
         text-align: center;
-        font-size: 0;
+        overflow: hidden;
     }
     .cmp-dp-time-group{
         width: 105px;
         height: 26px;
+        float: left;
         overflow: hidden;
-        display: inline-block;
         vertical-align: top;
         font-size: 12px;
         color: #999999;
         input{
             width: 20px;
-            height: 24px;
-            padding: 0;
+            height: 16px;
+            line-height: 16px;
+            padding: 4px 0;
+            *margin-top: -1px;
             text-align: center;
             color: #666666;
             border: 1px solid #cccccc;
             outline: none;
+            vertical-align: middle;
         }
     }
     .cmp-dp-btn-group{
         width: 105px;
         height: 26px;
+        float: left;
         overflow: hidden;
-        display: inline-block;
         font-size: 0;
         .cmp-dp-btn{
             display: inline-block;
