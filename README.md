@@ -34,6 +34,18 @@ $('#J-demo-02').dateTimePicker({
 });
 ```
 
+```
+$('#J-demo-03').dateTimePicker({
+    mode: 'dateTime',
+    limitMin: '2017-03-10',
+    limitMax: '2017-03-20',
+    format: 'yyyy/MM/dd HH:mm:ss',
+    yearName: '',
+    monthName: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'], //月份显示格式
+    dayName: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
+});
+```
+
 <br /><br />
 
 # configObj
