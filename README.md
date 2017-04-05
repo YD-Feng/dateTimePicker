@@ -21,7 +21,7 @@ $.setDateTimePickerConfig({
 
 <br /><br />
 
-# $.fn.dateTimePicker(configObj);
+# $.fn.dateTimePicker([configObj]);
 生成日期选择器实例<br />
 下面是这个方法的调用例子：
 ```
