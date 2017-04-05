@@ -1,0 +1,250 @@
+.cmp-date-time-picker{
+    width: 210px;
+    padding: 4px;
+    margin: 0;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px #cccccc;
+    box-sizing: content-box;
+    font-size: 12px;
+    position: absolute;
+    z-index: 9999;
+    display: none;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently not supported by any browser */
+    *{
+        box-sizing: content-box;
+        margin: 0;
+        padding: 0;
+        font-style: normal;
+    }
+    .cmp-dp-ctrl-wrap{
+        width: 210px;
+        height: 26px;
+        overflow: hidden;
+    }
+    .cmp-dp-ctrl-group{
+        height: 26px;
+        line-height: 26px;
+        float: left;
+        margin: 0 2px;
+        .cmp-dp-btn{
+            width: 22px;
+            height: 26px;
+            overflow: hidden;
+            float: left;
+            cursor: pointer;
+            position: relative;
+        }
+        .cmp-dp-txt{
+            width: 57px;
+            height: 26px;
+            text-align: center;
+            overflow: hidden;
+            float: left;
+        }
+        .cmp-dp-triangle{
+            display: block;
+            width: 0;
+            height: 0;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -4px 0 0 -2px;
+        }
+        .cmp-dp-btn-prev .cmp-dp-triangle{
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+            border-left: 0 solid transparent;
+            border-right: 5px solid #333333;
+        }
+        .cmp-dp-btn-next .cmp-dp-triangle{
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+            border-left: 5px solid #333333;
+            border-right: 0 solid transparent;
+        }
+    }
+    .cmp-dp-ctrl-group-month{
+        width: 91px;
+        .cmp-dp-txt {
+            width: 47px;
+            cursor: pointer;
+        }
+    }
+    .cmp-dp-ctrl-group-year{
+        width: 111px;
+        .cmp-dp-txt {
+            width: 67px;
+        }
+    }
+
+    .cmp-dp-day-name{
+        width: 210px;
+        height: 30px;
+        line-height: 30px;
+        overflow: hidden;
+        .cmp-dp-day-item{
+            width: 30px;
+            text-align: center;
+            font-weight: bold;
+            color: #999999;
+            float: left;
+        }
+    }
+
+    .cmp-dp-date-wrapper{
+        width: 210px;
+        line-height: 26px;
+        overflow: hidden;
+        .cmp-dp-date-item{
+            width:26px;
+            margin: 0 2px 4px 2px;
+            text-align: center;
+            color: #333333;
+            float: left;
+            cursor: pointer;
+            border-radius: 3px;
+            &:hover{
+                background-color: #eeeeee;
+                color: #3740d5;
+                font-weight: bold;
+            }
+        }
+        .cmp-dp-date-item-today, .cmp-dp-date-item-today:hover{
+            background-color: #a4a4a4;
+            color: #ffffff;
+        }
+        .cmp-dp-date-item-other{
+            background-color: #f0f0f0;
+        }
+        .cmp-dp-date-item-cur, .cmp-dp-date-item-cur:hover{
+            background-color: #3740d5;
+            color: #ffffff;
+        }
+        .cmp-dp-date-item-disabled, .cmp-dp-date-item-disabled:hover{
+            background-color: #f9f9f9;
+            color: #e1e1e1;
+            font-weight: normal;
+            cursor: default;
+        }
+    }
+
+    .cmp-dp-btn-wrap{
+        width: 210px;
+        height: 26px;
+        padding-top: 5px;
+        padding-bottom: 4px;
+        text-align: center;
+        font-size: 0;
+    }
+    .cmp-dp-time-group{
+        width: 105px;
+        height: 26px;
+        overflow: hidden;
+        display: inline-block;
+        vertical-align: top;
+        font-size: 12px;
+        color: #999999;
+        input{
+            width: 20px;
+            height: 24px;
+            padding: 0;
+            text-align: center;
+            color: #666666;
+            border: 1px solid #cccccc;
+            outline: none;
+        }
+    }
+    .cmp-dp-btn-group{
+        width: 105px;
+        height: 26px;
+        overflow: hidden;
+        display: inline-block;
+        font-size: 0;
+        .cmp-dp-btn{
+            display: inline-block;
+            padding: 0 8px;
+            margin: 0 4px;
+            height: 24px;
+            line-height: 24px;
+            font-size: 12px;
+            color: #ffffff;
+            background: #3740d5;
+            border: 1px solid #3740d5;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .cmp-dp-btn-disabled{
+            color: #f6f6f6;
+            background: #cecece;
+            border: 1px solid #cecece;
+        }
+    }
+
+    .cmp-dp-month-menu{
+        width: 150px;
+        padding: 4px;
+        background-color: #ffffff;
+        border: 1px solid #cccccc;
+        border-radius: 2px;
+        box-shadow: 0 1px 3px #cccccc;
+        position: absolute;
+        top: 30px;
+        right: 10px;
+        display: none;
+    }
+    .cmp-dp-month-item{
+        width: 50px;
+        height: 26px;
+        line-height: 26px;
+        text-align: center;
+        overflow: hidden;
+        border-radius: 3px;
+        float: left;
+        &:hover{
+            background-color: #eeeeee;
+        }
+    }
+
+    .cmp-dp-time-menu{
+        width: 180px;
+        padding: 4px;
+        background-color: #ffffff;
+        border: 1px solid #cccccc;
+        border-radius: 2px;
+        box-shadow: 0 1px 3px #cccccc;
+        position: absolute;
+        bottom: 37px;
+        display: none;
+    }
+    .cmp-dp-time-item{
+        width: 26px;
+        line-height: 26px;
+        margin: 0 2px;
+        text-align: center;
+        color: #333333;
+        float: left;
+        cursor: pointer;
+        border-radius: 3px;
+        &:hover{
+            background-color: #eeeeee;
+        }
+    }
+    .cmp-dp-hour-menu{
+        left: 4px;
+    }
+    .cmp-dp-minute-menu{
+        width: 120px;
+        left: 36px;
+    }
+    .cmp-dp-second-menu{
+        width: 120px;
+        left: 68px;
+    }
+}

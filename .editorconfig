@@ -1,0 +1,22 @@
+# EditorConfig is awesome: http://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+# 匹配所有文件
+[*]
+
+# 使用 4 个空格缩进
+indent_style = space
+indent_size = 4
+
+# Unix 风格换行模式
+end_of_line = lf
+
+# 文件为 utf-8 格式
+charset = utf-8
+
+# 移除多余空行的空格
+trim_trailing_whitespace = true
+
+# 行末保留一空行
+insert_final_newline = true

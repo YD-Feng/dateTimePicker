@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dateTimePicker</title>
+    <link type="text/css" rel="stylesheet" href="demo.css">
+    <style type="text/css">
+        .mt10px{
+            margin-top: 10px;
+        }
+        .mt20px{
+            margin-top: 20px;
+        }
+        input{
+            background: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius: 3px;
+            height: 26px;
+            padding: 0 4px;
+        }
+        p{
+            line-height: 25px;
+        }
+    </style>
+
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="../dist/date-time-picker.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <h2>dateTimePicker</h2>
+    <ul>
+        <li>需要修改样式，请用样式覆盖，或者修改项目源文件，然后执行 gulp build 命令重新生成文件</li>
+        <li>样式文件已经整合到打包文件中了，使用前只需将 js 文件直接引入到页面中即可（请确保 jquery 已经在插件前面引用）</li>
+    </ul>
+
+    <div style="height: 50px"></div>
+    <h2>Demo</h2>
+    <p style="padding: 10px 0; line-height: 25px;">
+        详细的文档请看 gitHub ，此 demo 单作演示用。
+    </p>
+
+    <div class="demo-div mt20px">
+        <p>最简单的调用：</p>
+
+        <input type="text" class="mt10px" id="J-demo-01">
+
+        <script type="text/javascript">
+            $('#J-demo-01').dateTimePicker();
+        </script>
+    </div>
+
+    <div class="demo-div mt20px">
+        <p>日期时间选择器：</p>
+
+        <input type="text" class="mt10px" id="J-demo-02">
+
+        <script type="text/javascript">
+            $('#J-demo-02').dateTimePicker({
+                mode: 'dateTime'
+            });
+        </script>
+    </div>
+
+    <div class="demo-div mt20px">
+        <p>限制选择区间：</p>
+
+        <input type="text" class="mt10px" id="J-demo-03" value="2017-03-15">
+
+        <script type="text/javascript">
+            $('#J-demo-03').dateTimePicker({
+                limitMin: '2017-03-10',
+                limitMax: '2017-03-20'
+            });
+        </script>
+    </div>
+
+    <div class="demo-div mt20px">
+        <p>两个输入框关联（选择时间段，前者的时间必须小于等于后者）：</p>
+
+        <input type="text" class="mt10px" id="J-demo-04" value=""> - <input type="text" class="mt10px" id="J-demo-05" value="">
+
+        <script type="text/javascript">
+            $('#J-demo-04').dateTimePicker({
+                limitMax: $('#J-demo-05')
+            });
+
+            $('#J-demo-05').dateTimePicker({
+                limitMin: $('#J-demo-04')
+            });
+        </script>
+    </div>
+
+    <div class="demo-div mt20px">
+        <p>指定日期格式：</p>
+
+        <input type="text" class="mt10px" id="J-demo-06">
+
+        <script type="text/javascript">
+            $('#J-demo-06').dateTimePicker({
+                mode: 'dateTime',
+                format: 'yyyy/MM/dd HH:mm:ss'
+            });
+        </script>
+    </div>
+
+    <div class="demo-div mt20px">
+        <p>指定年，月，日的名称（只影响选择器界面中的选项展示）：</p>
+
+        <input type="text" class="mt10px" id="J-demo-07">
+
+        <script type="text/javascript">
+            $('#J-demo-07').dateTimePicker({
+                yearName: '',
+                monthName: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'], //月份显示格式
+                dayName: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
+            });
+        </script>
+    </div>
+
+    <div class="demo-div mt20px">
+        <p>也可以通过 <b style="color: #ad0000;">$.setDateTimePickerConfig(configObj)</b> 方法设置全局属性，在调用 dateTimePicker 前进行一次设置，就会应用到所有实例中去</p>
+        <p>如有需要，可全局设置 mode，yearName，monthName，dayName，format</p>
+        <p>limitMin 和 limitMax 虽然也能进行全局设置，但不建议这样做</p>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+</body>
+</html>

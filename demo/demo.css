@@ -1,0 +1,17 @@
+body,html{
+    font-family: "微软雅黑", "宋体", Arial, sans-serif;
+    font-size: 14px;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 940px;
+    margin: 0 auto;
+    padding: 20px 0 80px 0;
+}
+.container H2{
+    font-size: 28px;
+    line-height: 60px;
+}
