@@ -39,30 +39,30 @@ $('#J-demo-02').dateTimePicker({
 # configObj
 日期选择器的配置对象，它包含多个属性，下面是每个属性的注解<br />
 
-## limitMax【Str|JqObj】
+### limitMax【Str|JqObj】
 如果设定了此配置项，日期选择范围会限制在此输入框当前时间之前（包含当前时间），可传入JQ对象，或者具体日期(请保证日期格式符合国际标准)
 <br />
 
-## limitMin【Str|JqObj】
+### limitMin【Str|JqObj】
 如果设定了此配置项，日期选择范围会限制在此输入框当前时间之后（包含当前时间），可传入JQ对象，或者具体日期(请保证日期格式符合国际标准)
 <br />
 
-## yearName【Str】
+### yearName【Str】
 年份名，默认值为："年"
 <br />
 
-## monthName【StrArr】
+### monthName【StrArr】
 月份显示格式，需传入一个字符串数组，默认值为：['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
 <br />
 
-## dayName【StrArr】
+### dayName【StrArr】
 星期显示格式，需传入一个字符串数组，默认值为：['日', '一', '二', '三', '四', '五', '六']
 <br />
 
-## mode【Str】
+### mode【Str】
 选择器模式，可传 "date" 或 "dateTime"，默认值为："date"
 <br />
 
-## format【Str】
+### format【Str】
 时间格式，默认值为：'yyyy-MM-dd'（当 mode 为 "date" 时） 或 'yyyy-MM-dd HH:mm:ss'（当 mode 为 "dateTime" 时）
 <br />
