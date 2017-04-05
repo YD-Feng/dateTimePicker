@@ -40,8 +40,8 @@ $('#J-demo-02').dateTimePicker({
 ```
 $('#J-demo-03').dateTimePicker({
     mode: 'dateTime',
-    limitMin: '2017-03-10',
-    limitMax: '2017-03-20',
+    limitMin: '2017-03-10 08:00:00',
+    limitMax: '2017-03-20 08:00:00',
     format: 'yyyy/MM/dd HH:mm:ss',
     yearName: '',
     monthName: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'], //月份显示格式
