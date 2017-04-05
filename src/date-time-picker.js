@@ -544,7 +544,7 @@ module.exports = (function ($) {
         var $this = $(this);
 
         def.done(function ($dateTimePicker, refreshPicker) {
-            new DateTimePicker($.extend(defaultConfig, {
+            new DateTimePicker($.extend({}, defaultConfig, {
                 $target: $this
             }, opts), $dateTimePicker, refreshPicker);
         });

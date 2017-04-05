@@ -65,12 +65,13 @@
     <div class="demo-div mt20px">
         <p>限制选择区间：</p>
 
-        <input type="text" class="mt10px" id="J-demo-03" value="2017-03-15">
+        <input type="text" class="mt10px" id="J-demo-03" value="2017-03-15 12:00:00">
 
         <script type="text/javascript">
             $('#J-demo-03').dateTimePicker({
-                limitMin: '2017-03-10',
-                limitMax: '2017-03-20'
+                mode: 'dateTime',
+                limitMin: '2017-03-10 08:00:00',
+                limitMax: '2017-03-20 08:00:00'
             });
         </script>
     </div>
