@@ -93,6 +93,11 @@ DateTimePicker.prototype._bindEvents = function () {
             top: top > maxTop ? maxTop : top,
             left: left > maxLeft ? maxLeft : left
         }).show();
+
+        _this.options.$dateTimePicker.find('.J-dtp-month-menu').hide();
+        _this.options.$dateTimePicker.find('.J-dtp-hour-menu').hide();
+        _this.options.$dateTimePicker.find('.J-dtp-minute-menu').hide();
+        _this.options.$dateTimePicker.find('.J-dtp-second-menu').hide();
     });
 };
 
@@ -143,11 +148,10 @@ module.exports = (function ($) {
 
     $(function () {
         //只生成一个日期选择器DOM实例
-        $('body').append(require('./date-time-picker.html'));
+        var $dateTimePicker = $(require('./date-time-picker.html'));
+        $dateTimePicker.appendTo('body');
 
-        var $dateTimePicker = $('#J-dtp-picker'),
-
-            $dateWrap = $dateTimePicker.find('.J-dtp-date-wrap'),
+        var $dateWrap = $dateTimePicker.find('.J-dtp-date-wrap'),
             $btnYes = $dateTimePicker.find('.J-dtp-btn-yes'),
 
             $yearTxt = $dateTimePicker.find('.J-dtp-year-txt'),
@@ -167,7 +171,6 @@ module.exports = (function ($) {
                 var data = $dateTimePicker.data(),
                     selectedYear = data['year'],
                     selectedMonth = data['month'],
-                    selectedDate = data['date'],
                     firstDay = new Date(selectedYear, selectedMonth, 1),
                     lastDay = new Date(selectedYear, selectedMonth + 1, 0),
                     now = new Date(),
@@ -381,11 +384,6 @@ module.exports = (function ($) {
                 }
 
                 data['curTarget'].val(date.format(data['format']));
-
-                $monthMenu.hide();
-                $hourMenu.hide();
-                $minuteMenu.hide();
-                $secondMenu.hide();
                 $dateTimePicker.hide();
             };
 
@@ -394,10 +392,6 @@ module.exports = (function ($) {
             var $target = $(e.target);
 
             if ($target.closest($dateTimePicker).length == 0 && $target.closest($dateTimePicker.data('targetList')).length == 0) {
-                $monthMenu.hide();
-                $hourMenu.hide();
-                $minuteMenu.hide();
-                $secondMenu.hide();
                 $dateTimePicker.hide();
             }
         });
@@ -528,7 +522,6 @@ module.exports = (function ($) {
         def.resolve($dateTimePicker, refreshPicker);
     });
 
-    //#J-dtp-picker 被日期选择器占用，请不要页面中使用此ID，否则会是日期选择器无法使用
     var defaultConfig = {
         $target: null, //需要生成日期选择器的目标，需传入JQ对象
         limitMax: null, //如果设定了此配置项，日期选择范围会限制在此输入框当前时间之前（包含当前时间），可传入JQ对象，或者具体日期(请保证日期格式符合国际标准)

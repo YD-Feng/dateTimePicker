@@ -24,7 +24,7 @@ var gulp = require('gulp'),
                 {
                     test: /\.js$/,
                     exclude: /node_modules/,
-                    loader: 'babel'
+                    loaders: ['es3ify-loader', 'babel']
                 },
                 //html 文件先通过 less-load 处理成 css，然后再通过 css-loader 加载成 css 模块，最后由 extractTextPlugin 插件通过 style-loader 加载器提取出 css 文件
                 {
@@ -43,6 +43,10 @@ var gulp = require('gulp'),
                     loader: 'file-loader?name=app-img/[name]-[hash].[ext]'
                 }
             ]
+        },
+
+        babel: {
+            presets: ['es2015']//es2015 用于支持 ES6 语法
         },
 
         htmlLoader: {
