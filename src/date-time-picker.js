@@ -19,6 +19,8 @@ var DateTimePicker = function (opts, $dateTimePicker, refreshPicker) {
     targetList.push(_this.options.$target[0]);
     _this.options.$dateTimePicker.data('targetList', targetList);
 
+    _this.options.$target.prop('readonly', true);
+
     _this._renderPicker();
     _this._bindEvents();
 };
