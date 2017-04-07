@@ -502,19 +502,24 @@ module.exports = (function ($) {
         });
 
         $dateTimePicker.find('.J-dtp-btn-now').on('click', function () {
-            var data = $dateTimePicker.data('original');
+            var date = $dateTimePicker.data('original'),
+                val = $dateTimePicker.data('curTarget').val();
+
+            if (val == '') {
+                date = new Date();
+            }
 
             $dateTimePicker.data({
-                year: data.getFullYear(),
-                month: data.getMonth(),
-                date: data.getDate()
+                year: date.getFullYear(),
+                month: date.getMonth(),
+                date: date.getDate()
             });
 
             refreshPicker();
 
-            $hourInput.val(data.getHours() > 9 ? data.getHours() : '0' + data.getHours());
-            $minuteInput.val(data.getMinutes() > 9 ? data.getMinutes() : '0' + data.getMinutes());
-            $secondInput.val(data.getSeconds() > 9 ? data.getSeconds() : '0' + data.getSeconds());
+            $hourInput.val(date.getHours() > 9 ? date.getHours() : '0' + date.getHours());
+            $minuteInput.val(date.getMinutes() > 9 ? date.getMinutes() : '0' + date.getMinutes());
+            $secondInput.val(date.getSeconds() > 9 ? date.getSeconds() : '0' + date.getSeconds());
         });
 
         $btnYes.on('click', function () {
