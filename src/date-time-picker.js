@@ -34,7 +34,8 @@ DateTimePicker.prototype._bindEvents = function () {
 
     _this.options.$target.on('focus', function () {
         var $this = $(this),
-            date = new Date($this.val()),
+            val = $this.val(),
+            date = new Date(val),
             hour = 0,
             minute = 0,
             second = 0,
@@ -72,8 +73,10 @@ DateTimePicker.prototype._bindEvents = function () {
             hour = date.getHours() > 9 ? date.getHours() : '0' + date.getHours();
             minute = date.getMinutes() > 9 ? date.getMinutes() : '0' + date.getMinutes();
             second = date.getSeconds() > 9 ? date.getSeconds() : '0' + date.getSeconds();
+            _this.options.$dateTimePicker.find('.J-dtp-date-btn-wrap').hide();
             _this.options.$dateTimePicker.find('.J-dtp-time-btn-wrap').show();
         } else {
+            _this.options.$dateTimePicker.find('.J-dtp-date-btn-wrap').show();
             _this.options.$dateTimePicker.find('.J-dtp-time-btn-wrap').hide();
         }
 
@@ -100,6 +103,12 @@ DateTimePicker.prototype._bindEvents = function () {
         _this.options.$dateTimePicker.find('.J-dtp-hour-menu').hide();
         _this.options.$dateTimePicker.find('.J-dtp-minute-menu').hide();
         _this.options.$dateTimePicker.find('.J-dtp-second-menu').hide();
+
+        if (val == '') {
+            _this.options.$dateTimePicker.find('.J-dtp-btn-clear').addClass('cmp-dp-btn-disabled').prop('disabled', true);
+        } else {
+            _this.options.$dateTimePicker.find('.J-dtp-btn-clear').removeClass('cmp-dp-btn-disabled').prop('disabled', false);
+        }
     });
 };
 
@@ -501,13 +510,16 @@ module.exports = (function ($) {
             }
         });
 
-        $dateTimePicker.find('.J-dtp-btn-now').on('click', function () {
-            var date = $dateTimePicker.data('original'),
-                val = $dateTimePicker.data('curTarget').val();
-
-            if (val == '') {
-                date = new Date();
+        $dateTimePicker.find('.J-dtp-btn-clear').on('click', function () {
+            if ($(this).hasClass('cmp-dp-btn-disabled')) {
+                return;
             }
+            $dateTimePicker.data('curTarget').val('');
+            $dateTimePicker.hide();
+        });
+
+        $dateTimePicker.find('.J-dtp-btn-today').on('click', function () {
+            var date = new Date();
 
             $dateTimePicker.data({
                 year: date.getFullYear(),
@@ -516,13 +528,13 @@ module.exports = (function ($) {
             });
 
             refreshPicker();
-
-            $hourInput.val(date.getHours() > 9 ? date.getHours() : '0' + date.getHours());
-            $minuteInput.val(date.getMinutes() > 9 ? date.getMinutes() : '0' + date.getMinutes());
-            $secondInput.val(date.getSeconds() > 9 ? date.getSeconds() : '0' + date.getSeconds());
+            setValue();
         });
 
         $btnYes.on('click', function () {
+            if ($(this).hasClass('cmp-dp-btn-disabled')) {
+                return;
+            }
             setValue();
         });
 
