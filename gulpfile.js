@@ -2,8 +2,6 @@ var gulp = require('gulp'),
 
     named = require('vinyl-named'),
     webpack = require('gulp-webpack'),
-    postcssautoprefixer = require('autoprefixer'),
-    postcssclean = require('postcss-clean'),
     uglify = require('gulp-uglify'),
 
     copy = require('gulp-copy'),
@@ -53,12 +51,6 @@ var gulp = require('gulp'),
             ignoreCustomFragments: [/\{\{.*?}}/],
             root: __dirname + '/src'
         },
-
-        postcss: [postcssautoprefixer({browsers: [
-            'last 2 version', 'safari 5', 'ie 7', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'
-        ]}), postcssclean({
-            compatibility: 'ie7'
-        })],
 
         //其它解决方案配置
         resolve: {

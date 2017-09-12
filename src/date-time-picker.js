@@ -76,8 +76,55 @@ DateTimePicker.prototype._bindEvents = function () {
             _this.options.$dateTimePicker.find('.J-dtp-date-btn-wrap').hide();
             _this.options.$dateTimePicker.find('.J-dtp-time-btn-wrap').show();
         } else {
+
+            var limitMaxDate = null,
+                limitMinDate = null,
+                now = new Date();
+
+            //类型为选日期，需要对今天按钮做可用判断
+            if (_this.options.limitMax != null) {
+                var limitMax = _this.options.limitMax;
+
+                if (limitMax instanceof $) {
+                    limitMaxDate = new Date(limitMax.val());
+                } else {
+                    limitMaxDate = new Date(limitMax);
+                }
+
+                if (isNaN(limitMaxDate.valueOf())) {
+                    limitMaxDate = null;
+                } else {
+                    limitMaxDate.setHours(0);
+                    limitMaxDate.setMinutes(0);
+                    limitMaxDate.setSeconds(0);
+                }
+            }
+
+            if (_this.options.limitMin != null) {
+                var limitMin = _this.options.limitMin;
+
+                if (limitMin instanceof $) {
+                    limitMinDate = new Date(limitMin.val());
+                } else {
+                    limitMinDate = new Date(limitMin);
+                }
+
+                if (isNaN(limitMinDate.valueOf())) {
+                    limitMinDate = null;
+                } else {
+                    limitMinDate.setHours(0);
+                    limitMinDate.setMinutes(0);
+                    limitMinDate.setSeconds(0);
+                }
+            }
+
+            if (now > limitMaxDate || now < limitMinDate) {
+                _this.options.$dateTimePicker.find('.J-dtp-btn-today').addClass('cmp-dp-btn-disabled').prop('disabled', true);
+            }
+
             _this.options.$dateTimePicker.find('.J-dtp-date-btn-wrap').show();
             _this.options.$dateTimePicker.find('.J-dtp-time-btn-wrap').hide();
+
         }
 
         _this.options.$dateTimePicker.find('.J-dtp-hour-input').val(hour);
@@ -519,6 +566,10 @@ module.exports = (function ($) {
         });
 
         $dateTimePicker.find('.J-dtp-btn-today').on('click', function () {
+            if ($(this).hasClass('cmp-dp-btn-disabled')) {
+                return;
+            }
+
             var date = new Date();
 
             $dateTimePicker.data({
@@ -562,7 +613,7 @@ module.exports = (function ($) {
         });
 
         return $this;
-    }
+    };
 
     $.setDateTimePickerConfig = function (opts) {
         defaultConfig = $.extend(defaultConfig, opts);
