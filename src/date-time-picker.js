@@ -118,8 +118,10 @@ DateTimePicker.prototype._bindEvents = function () {
                 }
             }
 
-            if (now > limitMaxDate || now < limitMinDate) {
+            if (limitMaxDate && now > limitMaxDate || limitMinDate && now < limitMinDate) {
                 _this.options.$dateTimePicker.find('.J-dtp-btn-today').addClass('cmp-dp-btn-disabled').prop('disabled', true);
+            } else {
+                _this.options.$dateTimePicker.find('.J-dtp-btn-today').removeClass('cmp-dp-btn-disabled').prop('disabled', false);
             }
 
             _this.options.$dateTimePicker.find('.J-dtp-date-btn-wrap').show();
