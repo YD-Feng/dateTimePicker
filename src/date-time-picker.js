@@ -21,12 +21,40 @@ var DateTimePicker = function (opts, $dateTimePicker, refreshPicker) {
 
     _this.options.$target.prop('readonly', true);
 
-    _this._renderPicker();
     _this._bindEvents();
 };
 
-DateTimePicker.prototype._renderPicker = function () {
-    var _this = this;
+DateTimePicker.prototype._getDateByFormat = function (dateStr) {
+    if (dateStr === '') {
+        return new Date();
+    }
+
+    var _this = this,
+        format = _this.options.format,
+        strList = ['y', 'M', 'd', 'H', 'm', 's'],
+        obj = {
+            y: 0,
+            M: 0,
+            d: 0,
+            H: 0,
+            m: 0,
+            s: 0
+        },
+        date = null;
+
+    for (var i = 0, len = strList.length; i < len; i++) {
+        var curStr = strList[i],
+            index = format.search(curStr),
+            match = format.match(new RegExp(curStr, 'g'));
+
+        obj[curStr] = dateStr.substring(index, index + (match ? match.length : 0)) * 1;
+    }
+
+    date = new Date(obj.y, obj.M - 1, obj.d, obj.H, obj.m, obj.s);
+
+    if (isNaN(date.valueOf())) date = new Date();
+
+    return date;
 };
 
 DateTimePicker.prototype._bindEvents = function () {
@@ -35,7 +63,7 @@ DateTimePicker.prototype._bindEvents = function () {
     _this.options.$target.on('focus', function () {
         var $this = $(this),
             val = $this.val(),
-            date = new Date(val),
+            date = _this._getDateByFormat(val),
             hour = 0,
             minute = 0,
             second = 0,
@@ -47,8 +75,6 @@ DateTimePicker.prototype._bindEvents = function () {
             $document = $(document),
             maxLeft = $document.width() - _this.options.$dateTimePicker.outerWidth(),
             maxTop = $document.height() - _this.options.$dateTimePicker.outerHeight();
-
-        if (isNaN(date.valueOf())) date = new Date();
 
         _this.options.$dateTimePicker.data({
             curTarget: $this,
