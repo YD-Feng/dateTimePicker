@@ -4,7 +4,6 @@ var gulp = require('gulp'),
     webpack = require('gulp-webpack'),
     uglify = require('gulp-uglify'),
 
-    copy = require('gulp-copy'),
     clean = require('gulp-clean'),
 
     util = require('gulp-util'),
