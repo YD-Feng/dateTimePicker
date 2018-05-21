@@ -24,7 +24,7 @@ var gulp = require('gulp'),
                     exclude: /node_modules/,
                     loaders: ['es3ify-loader', 'babel']
                 },
-                //html 文件先通过 less-load 处理成 css，然后再通过 css-loader 加载成 css 模块，最后由 extractTextPlugin 插件通过 style-loader 加载器提取出 css 文件
+                //html 文件先通过 html-loader 处理成字符串
                 {
                     test: /\.html$/,
                     loader: 'html-loader?interpolate=require'
